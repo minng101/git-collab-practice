@@ -43,8 +43,8 @@ python src/cli.py --file README.md --histogram
 # 输出词频最高的 5 个词，并区分大小写
 python src/cli.py --file README.md --histogram --top 5 --case-sensitive
 
-# 运行单元测试
-python -m pytest tests/ -v
+# 运行单元测试（仅依赖标准库，无需安装第三方包）
+python -m unittest discover -s tests -v
 ```
 
 ## 词切分规则
@@ -57,15 +57,16 @@ python -m pytest tests/ -v
 
 ## 版本历史
 
-| 提交 | 内容 |
-| --- | --- |
-| 初始提交 | 搭建项目骨架、README、.gitignore，实现基础文本统计 |
-| 功能一 | 新增词频直方图输出与词切分规则 |
-| 错误引入 | 故意引入行数统计回归缺陷，用于演示版本回滚 |
-| 回滚 | 使用 `git revert` 撤销错误提交，恢复正确状态 |
-| 收尾 | 补充单元测试与协作流程文档 |
+| 序号 | 提交信息 | 内容 |
+| --- | --- | --- |
+| 1 | `chore: 初始化 textstats 项目骨架并实现基础文本统计` | 搭建项目骨架、README、.gitignore，实现基础文本统计 |
+| 2 | `feat: 新增词频直方图输出与词切分规则` | 新增词频直方图输出与词切分规则 |
+| 3 | `test: 为文本统计核心逻辑补充 24 个单元测试` | 补充单元测试，锁定各项行为约定 |
+| 4 | `fix: 优化行数统计的换行符处理逻辑` | **故意引入的回归缺陷**，用于演示版本回滚 |
+| 5 | `Revert "fix: 优化行数统计的换行符处理逻辑"` | 使用 `git revert` 撤销错误提交，恢复正确状态 |
+| 6 | `docs: 补充协作流程记录与使用说明` | 补充协作流程文档与使用说明 |
 
-详细的协作流程与回滚操作记录见 [docs/workflow.md](docs/workflow.md)。
+完整的操作命令、回滚前后的测试对比与同步验证方法见 [docs/workflow.md](docs/workflow.md)。
 
 ## 许可证
 
