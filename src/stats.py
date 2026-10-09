@@ -37,8 +37,8 @@ def count_lines(text: str) -> int:
     """
     if not text:
         return 0
-    # 以换行符数量作为行数，处理文本时更直观
-    return text.count("\n") + 1
+    lines = text.splitlines()
+    return len(lines)
 
 
 def tokenize(text: str) -> list[str]:
